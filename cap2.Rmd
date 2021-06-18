@@ -1,0 +1,168 @@
+---
+title: "**Metodología de la construcción de la muestra**"
+--- 
+
+<br>
+<br>
+
+<div class=text-justify>
+
+## **Objetivo:**
+
+Este apartado tiene como objetivo describir los procedimientos que permiten conformar la muestra de la Prueba Piloto 2021 de la ERAMO, de forma que proporcione soporte documental a dicho proceso, y permita definir la cobertura, alcances y limitaciones de dicha muestra.
+
+<br>
+
+## **Generalidades sobre muestreo.**
+
+Como es sabido, existen diferentes criterios de clasificación de los diferentes tipos de muestreo, aunque
+en general pueden dividirse en dos grandes grupos: métodos de muestreo probabilísticos y métodos
+de muestreo determinísticos.
+
+El **muestreo probabilístico** es útil para realizar estimaciones de variables en la población, donde todos
+sus elementos tienen una misma probabilidad de ser elegidos; los elementos muestrales tendrán
+valores muy parecidos a los de la población, de manera que las mediciones del subconjunto darán
+estimados precisos del conjunto mayor. Una de las principales ventajas de este tipo de muestreo es
+que puede medirse el tamaño de error de las predicciones y en consecuencia, reducir al mínimo el error
+estándar.
+
+Las modalidades para considerar dentro de este tipo de muestreo son: aleatorio simple, sistemático,
+por conglomerados, estratificado y complejo. Y dependiendo del número de etapas de selección que
+se definan puede ser unietápico, bietápico y polietápico.
+
+Por otro lado, dentro del **muestro determinístico**, existe el muestreo por cuotas, convencional o
+accidental, intencional o de juicio y bola de nieve, entre otros. En este tipo de muestreo, el cálculo del
+tamaño y selección de la muestra se basan en juicios y criterios subjetivos, por lo tanto, se desconoce
+la probabilidad de selección de las unidades de la población bajo estudio y no es posible establecer la
+precisión respecto a niveles de confianza predefinidos. No obstante esta restricción, el muestreo
+determinístico representa una alternativa viable, ya sea cuando la aplicación del muestreo probabilístico
+resulta demasiado costosa; cuando no es posible disponer de un marco de muestreo, o cuando existe
+seguridad en que la información recabada bajo este tipo de muestreo es suficientemente útil para los
+fines de la investigación. Por esta razón, el muestreo determinístico suele restringirse hacia estudios
+con fines exploratorios, pues tiene la desventaja de que **no pueden hacerse inferencias hacia la población** a partir de los datos que se originan.
+
+<br>
+
+## **Productos seleccionados de interés para la ERAMO.**
+
+<br>
+
+Como resultado de las discusiones realizadas dentro del Comité Técnico respecto a la necesidad de acotar el número de productos alimenticios a captar en la ERAMO, con la finalidad de facilitar la definición de la muestra y simplificar la estrategia operativa de la Prueba Piloto 2021, se llevó a cabo un breve estudio a fin de determinar los productos alimenticios que tienen mayor importancia en el país, tanto desde el punto de vista del productor (volumen y valor de la producción), como del consumidor (consumo anual *per cápita*), de modo que fuese posible establecer un grupo relativamente reducido de alimentos que de algún modo sean representativos de lo que el sector agropecuario del país produce, así como de lo que la población mexicana consume. 
+
+Este análisis se reprodujo a nivel de entidad federativa, dada la enorme diversidad que cada región de México ofrece en el sector agropecuario. El detalle del estudio y sus resultados se muestran en el siguiente documento.
+
+<br>
+
+
+<iframe src="files/Propuesta_Productos_ERAMO_AportacionesCT.pdf" style="width:100%; height:550px;" frameborder="0"></iframe>
+
+<br>
+<br>
+
+Como conclusión de dicho estudio, se elaboró un listado de productos por entidad federativa que recoge las recomendaciones realizadas por el Comité Técnico. Dicho listado representa el punto de partida para la construcción de la muestra del sector agropecuario, incluyendo para dicha muestra únicamente aquellas unidades de observación que producen los alimentos contenidos en este listado.
+
+Los productos seleccionados por sector de producción y entidad federativa se muestran en la siguiente tabla:
+
+<br>
+
+<br/>
+
+<p align="center"> **Cuadro 1. Principales productos agrícolas, pecuarios y pesqueros de las entidades federativas seleccionadas.** </p>
+
+```{r echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+
+t1 <- read.csv("files/Lista_Cult-Prod_ERAMO2021.csv", header = T)
+
+library(kableExtra)
+
+
+kbl(t1) %>%
+  kable_paper(full_width = T) %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+  scroll_box(height = "400px")
+
+```
+
+<br>
+<br>
+<br>
+
+
+
+## **Aspectos metodológicos.**
+
+<br>
+<br>
+
+### **Cuestionario para el sector agropecuario.** 
+
+<br>
+
+#### Unidades de observación.
+
+Las unidades de producción agrícola y pecuaria cuyos productos estén contenidos en el cuadro anterior, para cada entidad federativa participante. 
+<br>
+<br>
+
+#### Cobertura y desglose geográfico.
+
+Las 14 entidades federativas en las que existe presencia de representantes del CT o del GIEPDA, cuya colaboración a través una red de participación ciudadana basada en estudiantes de las instituciones de educación superior mencionadas antes, es fundamental para el cumplimiento de los objetivos de la Prueba Piloto. 
+
+Los estados participantes son: Baja California, Coahuila, Chiapas, Chihuahua, Ciudad de México, Guanajuato, Hidalgo, Jalisco, Estado de México, Nuevo León, Tabasco, Tamaulipas, Veracruz y Zacatecas. Se suman a este conjunto, dos estados adicionales de interés específico por su importancia para el sector agropecuario nacional, que son Michoacán y Sinaloa.
+
+La prueba piloto permitirá obtener información de la muestra a nivel de entidad federativa.
+
+<br>
+
+#### Tipo de muestreo.
+
+Dado que se requiere generar información sobre la pérdida de alimentos por tipo de producto, tamaño de la unidad productiva e incluso región geográfica, a efecto de contar con insumos para crear una muestra probabilística nacional, se ha elegido utilizar una muestra por conveniencia dirigida a las unidades de producción que cumplen el criterio definido para las unidades de observación. 
+
+Bajo estas circunstancias, se debe tener presente que **la muestra, al no estar construida en forma probabilística, no permite obtener inferencias sobre la población objetivo**. Las cifras o estimaciones que se obtengan de la muestra podrán representar o no, aproximaciones a los datos reales, pero la desviación o el sesgo que guarden respecto a la realidad no puede medirse, y por lo tanto, no deberían ser utilizadas como indicadoras de lo que sucede en las pérdidas del sector productivo de las entidades federativas, en ningún tipo de publicación. Las cifras que puedan calcularse a partir de la muestra podrán a lo sumo representar tendencias en el comportamiento esperado de las unidades de observación, basadas en la suposición de que otras unidades productivas de la región se comporten en forma similar. 
+
+Asimismo, cualquier mención de las medidas de tendencia central (promedio, mediana, moda), totales, razones o proporciones que se obtengan de la muestra, debe acompañarse de la palabras "de la muestra", precisando siempre que se trata de una muestra no probabilística. La estimación de varianzas e intervalos de confianza de las variables captadas solo tendrá sentido para efectos de análisis de la dispersión de los propios datos de la muestra, pero nunca como una medida de precisión de las estimaciones.
+
+<br>
+
+#### Tamaño de la muestra.
+
+Se define un tamaño de muestra de 200 unidades de observación por entidad federativa. Este tamaño se determinó con base en un criterio operativo como una carga de trabajo razonable para un grupo de 10 entrevistadores (20 entrevistas para cada uno), considerando un periodo de levantamiento de un mes, lo que implicaría el levantamiento de una entrevista por día hábil de lunes a viernes, aproximadamente. Por otra parte, este tamaño de muestra debería ser suficiente para generar insumos necesarios a efecto de construir estratificaciones, agrupamientos o clasificaciones de los distintos tipos de unidades productivas, con base en su comportamiento por monto de las pérdidas, tipos de productos manejados y tamaño de la unidad, entre otras variables, necesarios para diseñar una muestra probabilística posterior. 
+
+Cabe agregar que la variable de diseño de la futura muestra probabilística debe ser la proporción de pérdida de alimento en la unidad productiva.
+
+
+<br>
+
+#### Construcción de la muestra.
+
+Dado que no se cuenta con un inventario nacional de unidades de producción agropecuaria debidamente actualizado, se toma como marco de muestreo el listado de productores proporcionado por el Sistema de Información Agroalimentaria y Pesquera, órgano desconcentrado de la Secretaría de Agricultura y Desarrollo Rural (SADER), basado en sus registros administrativos.
+
+A partir de este listado, se ubican las unidades productoras por tipo de producto conforme el Cuadro 1. Una vez identificadas, se seleccionan para la muestra aquellas cuya distribución geográfica se encuentre en la periferia de las ciudades sede de las instituciones de educación superior participantes. Lo anterior garantiza que los entrevistadores no deban desplazarse grandes distancias para conseguir las entrevistas. Sólo en situaciones excepcionales se seleccionan unidades de observación más alejadas de los centros urbanos mencionados, como en el caso donde las zonas productoras de interés se concentren en regiones geográficas específicas dentro de la entidad federativa.
+
+
+<br>
+<br>
+
+### **Cuestionario para establecimientos.** 
+
+<br>
+
+#### Unidades de observación.
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+ 
+<br>
+ 
+ 
+</div>

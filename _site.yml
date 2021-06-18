@@ -1,0 +1,23 @@
+name: muestra_eramo_2021
+output_dir: '.'
+navbar:
+  title: Muestra para la Prueba Piloto de la Encuesta de Residuos <br> de Alimentos y Materia Orgánica, 2021
+  left:
+  - text: "Introducción"
+    href: index.html
+  - text: "Metodología"
+    href: cap2.html
+  - text: "BC"
+    href: cap3.html
+  - text: "Chih"
+    href: cap4.html
+  - text: "Coah"
+    href: cap5.html
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: flatly
+    highlight: kate
+    lib_dir: site_libs
+    self_contained: no

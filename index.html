@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Introducción</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Muestra para la Prueba Piloto de la Encuesta de Residuos <br> de Alimentos y Materia Orgánica, 2021</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introducción</a>
+</li>
+<li>
+  <a href="cap2.html">Metodología</a>
+</li>
+<li>
+  <a href="cap3.html">BC</a>
+</li>
+<li>
+  <a href="cap4.html">Chih</a>
+</li>
+<li>
+  <a href="cap5.html">Coah</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><strong>Introducción</strong></h1>
+
+</div>
+
+
+<p><br> <br></p>
+<div class="text-justify">
+<div id="antecedentes." class="section level2">
+<h2><strong>Antecedentes.</strong></h2>
+<p><br></p>
+<p>La Encuesta de Residuos Alimenticios y Materia Orgánica (ERAMO) es un importante esfuerzo para cuantificar la pérdida y el desperdicio de alimentos, tanto a nivel nacional como regional, a fin de generar datos robustos y consistentes que permitan crear políticas públicas para mitigar este importante problema.</p>
+<p>Las pérdidas de alimentos que se producen a lo largo de la cadena desde la cosecha, el sacrificio o la captura hasta el nivel minorista, pero sin incluirlo. El desperdicio de alimentos se produce en el nivel de la venta al por menor y el consumo.</p>
+<p>Un tercio estimado de toda la comida se pierde o se desperdicia al pasar de donde se produce a donde se consume; teniendo importantes impactos económicos, sociales y ambientales.</p>
+<p>Las causas son variadas y van desde el momento inadecuado de cosecha, las condiciones climáticas, las prácticas aplicadas en la cosecha, su manipulación, el transporte y almacenamiento, hasta las dificultades en la comercialización de los productos.</p>
+<p>Actualmente, se están realizando esfuerzos por parte de la FAO y ONU Medio Ambiente para medir el progreso hacia el logro del ODS 12.3 a través de dos índices separados: el Índice de Pérdida de Alimentos (FLI), dirigido por la FAO; y el Índice de desperdicio de alimentos (FWI), liderado por ONU Medio Ambiente <a href="http://www.fao.org/platform-food-loss-waste/background/en/" target="_blank_">(http://www.fao.org/platform-food-loss-waste/background/en/)</a>.</p>
+<p>En México no existe estadística oficial sobre la pérdida y desperdicio de alimentos (PDA). Algunos estudios hacen medición o estimación del desperdicio y pérdida de los alimentos, pero requieren de un respaldo estadístico de mayor envergadura, en un esfuerzo nacional que recupere las distintas realidades de nuestro vasto territorio y diversidad cultural.</p>
+<p>Por ello, desde 2018, se constituyó el <em>Grupo Interinstitucional de Expertos en Pérdida y Desperdicio de Alimentos (GIEPDA)</em> con la finalidad de diseñar una encuesta sobre residuos alimenticios dirigida a toda la cadena alimentaria, a fin de conocer su origen, cantidad, composición, reutilización, tratamiento y disposición final; con el propósito de generar información valiosa para conocer el fenómeno y facilitar, en lo posible, la toma de decisiones técnicamente sustentada.</p>
+<p>Dicho grupo se integra por representantes de las siguientes instituciones:</p>
+<ul>
+<li><p>Centro de Estudios para el Desarrollo Rural Sustentable y la Soberanía Alimentaria (CEDRSSA), perteneciente a la Cámara de Diputados</p></li>
+<li><p>Instituto Politécnico Nacional (IPN)</p></li>
+<li><p>Secretaría del Medio Ambiente y Recursos Naturales</p></li>
+<li><p>Universidad Autónoma Chapingo</p></li>
+<li><p>Universidad Autónoma Agraria “Antonio Narro”</p></li>
+<li><p>Seguridad Alimentaria Mexicana (SEGALMEX)</p></li>
+<li><p>INEGI</p></li>
+<li><p>Oficina de Consultoría del Banco Mundial para la PDA en México</p></li>
+</ul>
+<p>En conjunto, se ha trabajado hasta el momento en la construcción de un marco conceptual y metodológico que sirva a los objetivos trazados, mismo que retoma los marcos conceptuales de la FAO y la Comisión de Cooperación Ambiental de América del Norte, para adaptarlos a la realidad de México.</p>
+<p>Posteriormente, se conformó un <em>Comité Técnico de la ERAMO</em>, en donde se aglutinan académicos e investigadores provenientes de las siguientes instituciones:</p>
+<ul>
+<li><p>Universidad Autónoma de Coahuila</p></li>
+<li><p>Centro de Investigación y Asistencia en Tecnología y Diseño del Estado de Jalisco (CIATEJ)</p></li>
+<li><p>Universidad Autónoma de Nuevo León</p></li>
+<li><p>Universidad Autónoma Chapingo (Unidad Regional Universitaria Sursureste en Tabasco)</p></li>
+<li><p>Universidad Autónoma del Estado de Hidalgo</p></li>
+<li><p>Colegio de Postgraduados Campus Veracruz</p></li>
+<li><p>Universidad Autónoma de Zacatecas</p></li>
+<li><p>Instituto Tecnológico de Celaya</p></li>
+<li><p>Universidad de Ciencias y Artes de Chiapas</p></li>
+<li><p>Universidad Politécnica de Victoria</p></li>
+<li><p>Universidad Autónoma de Baja California</p></li>
+<li><p>Red 12.3 PDA México</p></li>
+</ul>
+<p><br></p>
+<p>Durante el año 2019 se llevó a cabo la primera prueba piloto de la ERAMO en establecimientos a nivel local en Aguascalientes. Posteriormente en 2020, se amplió la prueba piloto a varios estados de la república con apoyo de los integrantes del Comité Técnico (CT), obteniendo entrevistas no solamente en establecimientos, sino también en unidades de producción agropecuaria. Los resultados de dicha prueba piloto pueden consultarse en el sitio: <a href="https://ramegon76.github.io/resultados_pp_eramo_2020/index.html" class="uri">https://ramegon76.github.io/resultados_pp_eramo_2020/index.html</a></p>
+<p>Para el presente año se tiene programado el levantamiento de una prueba piloto mucho más amplia, con una muestra que abarcará las entidades del país donde existe presencia tanto del CT, como del GIEPDA, a saber: Baja California, Coahuila, Chiapas, Chihuahua, Ciudad de México, Guanajuato, Hidalgo, Jalisco, Estado de México, Nuevo León, Tabasco, Tamaulipas, Veracruz y Zacatecas. A estos, se agregaron Sinaloa y Michoacán, con lo que se tiene la mitad de los estados de la República Mexicana.</p>
+<p><br> <br></p>
+</div>
+<div id="objetivos-de-la-prueba-piloto-2021." class="section level2">
+<h2><strong>Objetivos de la Prueba Piloto 2021.</strong></h2>
+<p><br></p>
+<p>El objetivo general de la prueba es verificar la viabilidad y utilidad de los instrumentos de captación diseñados para la ERAMO, así como el diseño de la estrategia operativa.</p>
+<p><br></p>
+<p>En forma específica se busca:</p>
+<ul>
+<li><p>Evaluar el contenido temático, la claridad de los temas y conceptos, así como la redacción de las preguntas del instrumento de captación, para asegurar que dicho instrumento permita al informante proporcionar la información necesaria para la encuesta.</p></li>
+<li><p>Verificar los tiempos de aplicación de las entrevistas, el funcionamiento de la secuencia de preguntas en los cuestionarios, los porcentajes de respuesta en las unidades de observación y las cargas de trabajo asignadas a cada entrevistador.</p></li>
+<li><p>Probar la efectividad del diseño de la estrategia operativa y el diseño del procesamiento de la información, y asegurar que sean adecuados para cumplir los objetivos de la encuesta.</p></li>
+<li><p>Comprobar si las herramientas tecnológicas empleadas, que incluyen la aplicación de los entrevistadores en dispositivos móviles, el sistema de comunicación con la nube para el envío y recepción de las entrevistas, así como la carga y descarga de las bases de datos para el aseguramiento de la información obtenida en campo, son adecuadas y suficientes para una encuesta a nivel nacional.</p></li>
+<li><p>Generar una base de datos con información suficiente sobre cantidades de pérdida y desperdicio de alimentos que permita analizar tendencias en el comportamiento esperado de las unidades de observación, según el tipo de producto y unidad, a efecto de obtener insumos para el diseño estadístico de la muestra de una encuesta nacional sobre el tema.</p></li>
+</ul>
+<p><br> <br></p>
+</div>
+<div id="población-objetivo-para-la-eramo." class="section level2">
+<h2><strong>Población objetivo para la ERAMO.</strong></h2>
+<p><br></p>
+<p>La encuesta está dirigida tanto al sector productivo primario relacionado con la producción de alimentos: agricultura, cría de animales, caza y pesca. También incluye los siguientes rubros de los sectores secundario y de sevicios relacionados con alimentos: industrias empacadoras y procesadoras de alimentos y bebidas, establecimientos y empresas dedicadas transporte y almacenamiento, comercio al por mayor y al menudeo y unidades económicas dedicadas a los servicios de preparación de alimentos y bebidas. Esta selección fue hecha con base en el Sistema de Clasificación Industrial de América del Norte (SCIAN). Para una mejor comprensión de los momentos de la cadena de alimentos que comprende la encuesta, se citan aquí los conceptos que la Comisión para la Cooperación Ambiental (CCA) considera como objeto de estudio:</p>
+<p>• La producción de alimentos Post-cosecha abarca las actividades Post-cosecha que se llevan a cabo en la granja y también aquellas que implican cosecha, manejo yalmacenamiento de plantas o de animales (ganado, aves, mariscos) o sus partes, pero que se realizan fuera del sector agrícola.</p>
+<p>• El procesamiento de alimentos (la transformación de alimentos crudos en productos aptos para consumo, cocinado o almacenamiento). El término <em>procesamiento de alimentos</em> equivale a <em>transformación o fabricación de alimentos</em>.</p>
+<p>• La distribución abarca el transporte y la distribución de productos alimenticios antes de la recepción por el consumidor, e incluye venta al mayoreo e intermediación.</p>
+<p>• La venta al menudeo se refiere a la oferta de alimentos para uso en el hogar en negocios de servicio directo al consumidor (por ejemplo, tiendas o mercados). La venta en restaurantes o en ámbitos institucionales no está incluida en este apartado.</p>
+<p>• Los servicios alimentarios abarcan la preparación de alimentos y los servicios de comida, bocadillos y bebidas para consumo fuera del hogar (o para llevar), en establecimientos formales o de comida rápida y en ámbitos comerciales e institucionales, como restaurantes, salones de eventos, hoteles y cafeterías.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

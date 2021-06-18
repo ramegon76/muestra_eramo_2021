@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Metodología de la construcción de la muestra</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Muestra para la Prueba Piloto de la Encuesta de Residuos <br> de Alimentos y Materia Orgánica, 2021</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introducción</a>
+</li>
+<li>
+  <a href="cap2.html">Metodología</a>
+</li>
+<li>
+  <a href="cap3.html">BC</a>
+</li>
+<li>
+  <a href="cap4.html">Chih</a>
+</li>
+<li>
+  <a href="cap5.html">Coah</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><strong>Metodología de la construcción de la muestra</strong></h1>
+
+</div>
+
+
+<p><br> <br></p>
+<div class="text-justify">
+<div id="objetivo" class="section level2">
+<h2><strong>Objetivo:</strong></h2>
+<p>Este apartado tiene como objetivo describir los procedimientos que permiten conformar la muestra de la Prueba Piloto 2021 de la ERAMO, de forma que proporcione soporte documental a dicho proceso, y permita definir la cobertura, alcances y limitaciones de dicha muestra.</p>
+<p><br></p>
+</div>
+<div id="generalidades-sobre-muestreo." class="section level2">
+<h2><strong>Generalidades sobre muestreo.</strong></h2>
+<p>Como es sabido, existen diferentes criterios de clasificación de los diferentes tipos de muestreo, aunque en general pueden dividirse en dos grandes grupos: métodos de muestreo probabilísticos y métodos de muestreo determinísticos.</p>
+<p>El <strong>muestreo probabilístico</strong> es útil para realizar estimaciones de variables en la población, donde todos sus elementos tienen una misma probabilidad de ser elegidos; los elementos muestrales tendrán valores muy parecidos a los de la población, de manera que las mediciones del subconjunto darán estimados precisos del conjunto mayor. Una de las principales ventajas de este tipo de muestreo es que puede medirse el tamaño de error de las predicciones y en consecuencia, reducir al mínimo el error estándar.</p>
+<p>Las modalidades para considerar dentro de este tipo de muestreo son: aleatorio simple, sistemático, por conglomerados, estratificado y complejo. Y dependiendo del número de etapas de selección que se definan puede ser unietápico, bietápico y polietápico.</p>
+<p>Por otro lado, dentro del <strong>muestro determinístico</strong>, existe el muestreo por cuotas, convencional o accidental, intencional o de juicio y bola de nieve, entre otros. En este tipo de muestreo, el cálculo del tamaño y selección de la muestra se basan en juicios y criterios subjetivos, por lo tanto, se desconoce la probabilidad de selección de las unidades de la población bajo estudio y no es posible establecer la precisión respecto a niveles de confianza predefinidos. No obstante esta restricción, el muestreo determinístico representa una alternativa viable, ya sea cuando la aplicación del muestreo probabilístico resulta demasiado costosa; cuando no es posible disponer de un marco de muestreo, o cuando existe seguridad en que la información recabada bajo este tipo de muestreo es suficientemente útil para los fines de la investigación. Por esta razón, el muestreo determinístico suele restringirse hacia estudios con fines exploratorios, pues tiene la desventaja de que <strong>no pueden hacerse inferencias hacia la población</strong> a partir de los datos que se originan.</p>
+<p><br></p>
+</div>
+<div id="productos-seleccionados-de-interés-para-la-eramo." class="section level2">
+<h2><strong>Productos seleccionados de interés para la ERAMO.</strong></h2>
+<p><br></p>
+<p>Como resultado de las discusiones realizadas dentro del Comité Técnico respecto a la necesidad de acotar el número de productos alimenticios a captar en la ERAMO, con la finalidad de facilitar la definición de la muestra y simplificar la estrategia operativa de la Prueba Piloto 2021, se llevó a cabo un breve estudio a fin de determinar los productos alimenticios que tienen mayor importancia en el país, tanto desde el punto de vista del productor (volumen y valor de la producción), como del consumidor (consumo anual <em>per cápita</em>), de modo que fuese posible establecer un grupo relativamente reducido de alimentos que de algún modo sean representativos de lo que el sector agropecuario del país produce, así como de lo que la población mexicana consume.</p>
+<p>Este análisis se reprodujo a nivel de entidad federativa, dada la enorme diversidad que cada región de México ofrece en el sector agropecuario. El detalle del estudio y sus resultados se muestran en el siguiente documento.</p>
+<p><br></p>
+<iframe src="files/Propuesta_Productos_ERAMO_AportacionesCT.pdf" style="width:100%; height:550px;" frameborder="0">
+</iframe>
+<p><br> <br></p>
+<p>Como conclusión de dicho estudio, se elaboró un listado de productos por entidad federativa que recoge las recomendaciones realizadas por el Comité Técnico. Dicho listado representa el punto de partida para la construcción de la muestra del sector agropecuario, incluyendo para dicha muestra únicamente aquellas unidades de observación que producen los alimentos contenidos en este listado.</p>
+<p>Los productos seleccionados por sector de producción y entidad federativa se muestran en la siguiente tabla:</p>
+<p><br></p>
+<p><br/></p>
+<p align="center">
+<strong>Cuadro 1. Principales productos agrícolas, pecuarios y pesqueros de las entidades federativas seleccionadas.</strong>
+</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
+<table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Entidad
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Agrícola
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Pecuario
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Pesquero
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Baja California
+</td>
+<td style="text-align:left;">
+Fresa
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Atún
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tomate rojo
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Langosta
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frambuesa
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+Lobina
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cebolla
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Sardina
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Abulón
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Chiapas
+</td>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Caña de azúcar
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Atún
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Café cereza
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Tiburón
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Plátano
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Camarón
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mango
+</td>
+<td style="text-align:left;">
+Miel
+</td>
+<td style="text-align:left;">
+Robalo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="6">
+Chihuahua
+</td>
+<td style="text-align:left;">
+Nuez
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Trucha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manzana
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chile verde
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cebolla
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sandía
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="7">
+Coahuila
+</td>
+<td style="text-align:left;">
+Manzana
+</td>
+<td style="text-align:left;">
+Leche de cabra
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Melón
+</td>
+<td style="text-align:left;">
+Ganado en pie caprino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Uva
+</td>
+<td style="text-align:left;">
+Carne en canal de caprino
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Trigo
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Lobina
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tomate rojo
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Besugo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nuez
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+CDMX
+</td>
+<td style="text-align:left;">
+Nopalitos
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Papa
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de ovino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Miel
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Guanajuato
+</td>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sorgo grano
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brócoli
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Charal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+Lobina
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Hidalgo
+</td>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cebada grano
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tomate rojo
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Trucha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de ovino
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Charal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Jalisco
+</td>
+<td style="text-align:left;">
+Agave
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Caña de azúcar
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Guachinango
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Pargo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+México
+</td>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Trucha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aguacate
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Papa
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Charal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de ovino
+</td>
+<td style="text-align:left;">
+Lobina
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Nuevo León
+</td>
+<td style="text-align:left;">
+Papa
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Naranja
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Lobina
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tomate rojo
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+Trucha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nuez
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Tabasco
+</td>
+<td style="text-align:left;">
+Plátano
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Caña de azúcar
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Robalo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cacao
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Langostino
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Bandera
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Palma africana o de aceite
+</td>
+<td style="text-align:left;">
+Carne en canal de guajolote
+</td>
+<td style="text-align:left;">
+Peto
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Tamaulipas
+</td>
+<td style="text-align:left;">
+Sorgo grano
+</td>
+<td style="text-align:left;">
+Carne canal de bovino
+</td>
+<td style="text-align:left;">
+Camarón
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Jaiba
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Caña de azúcar
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Guachinango
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Naranja
+</td>
+<td style="text-align:left;">
+Carne en canal de caprino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de ovino
+</td>
+<td style="text-align:left;">
+Robalo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="7">
+Veracruz
+</td>
+<td style="text-align:left;">
+Caña de azúcar
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Guachinango
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Robalo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Naranja
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Camarón
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Limón
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Piña
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frijol
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Melón
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Zacatecas
+</td>
+<td style="text-align:left;">
+Chile verde
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frijol
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tomate rojo
+</td>
+<td style="text-align:left;">
+Carne en canal de ovino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Carne en canal de caprino
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Michoacán
+</td>
+<td style="text-align:left;">
+Aguacate
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Zarzamora
+</td>
+<td style="text-align:left;">
+Leche de Bovino
+</td>
+<td style="text-align:left;">
+Carpa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fresa
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Guachinango
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Trucha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Limón
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+Bagre
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: middle !important;" rowspan="5">
+Sinaloa
+</td>
+<td style="text-align:left;">
+Maíz grano
+</td>
+<td style="text-align:left;">
+Carne en canal de bovino
+</td>
+<td style="text-align:left;">
+Camarón
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tomate rojo
+</td>
+<td style="text-align:left;">
+Carne en canal de ave
+</td>
+<td style="text-align:left;">
+Atún
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chile verde
+</td>
+<td style="text-align:left;">
+Huevo para plato
+</td>
+<td style="text-align:left;">
+Barrilete
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Garbanzo grano
+</td>
+<td style="text-align:left;">
+Carne en canal de porcino
+</td>
+<td style="text-align:left;">
+Jaiba
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frijol
+</td>
+<td style="text-align:left;">
+Leche de bovino
+</td>
+<td style="text-align:left;">
+Mojarra
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br> <br> <br></p>
+</div>
+<div id="aspectos-metodológicos." class="section level2">
+<h2><strong>Aspectos metodológicos.</strong></h2>
+<p><br> <br></p>
+<div id="cuestionario-para-el-sector-agropecuario." class="section level3">
+<h3><strong>Cuestionario para el sector agropecuario.</strong></h3>
+<p><br></p>
+<div id="unidades-de-observación." class="section level4">
+<h4>Unidades de observación.</h4>
+<p>Las unidades de producción agrícola y pecuaria cuyos productos estén contenidos en el listado anterior, para cada entidad federativa participante. <br> <br></p>
+</div>
+<div id="cobertura-y-desglose-geográfico." class="section level4">
+<h4>Cobertura y desglose geográfico.</h4>
+<p>Las 14 entidades federativas en las que existe presencia de representantes del CT o del GIEPDA, cuya colaboración a través una red de participación ciudadana basada en estudiantes de las instituciones de educación superior mencionadas antes, es fundamental para el cumplimiento de los objetivos de la Prueba Piloto.</p>
+<p>Los estados participantes son: Baja California, Coahuila, Chiapas, Chihuahua, Ciudad de México, Guanajuato, Hidalgo, Jalisco, Estado de México, Nuevo León, Tabasco, Tamaulipas, Veracruz y Zacatecas. Se suman a este conjunto, dos estados adicionales de interés específico por su importancia para el sector agropecuario nacional, que son Michoacán y Sinaloa.</p>
+<p>La prueba piloto permitirá obtener información de la muestra a nivel de entidad federativa.</p>
+<p><br></p>
+</div>
+<div id="tipo-de-muestreo." class="section level4">
+<h4>Tipo de muestreo.</h4>
+<p>Dado que se requiere generar información sobre la pérdida de alimentos por tipo de producto, tamaño de la unidad productiva e incluso región geográfica, a efecto de contar con insumos para crear una muestra probabilística nacional, se ha elegido utilizar una muestra por conveniencia dirigida a las unidades de producción que cumplen el criterio definido para las unidades de observación.</p>
+<p>Bajo estas circunstancias, se debe tener presente que <strong>la muestra, al no estar construida en forma probabilística, no permite obtener inferencias sobre la población objetivo</strong>. Las cifras o estimaciones que se obtengan de la muestra podrán representar o no, aproximaciones a los datos reales, pero la desviación o el sesgo que guarden respecto a la realidad no puede medirse, y por lo tanto, no deberían ser utilizadas como indicadoras de lo que sucede en las pérdidas del sector productivo de las entidades federativas, en ningún tipo de publicación. Las cifras que puedan calcularse a partir de la muestra podrán a lo sumo representar tendencias en el comportamiento esperado de las unidades de observación, basadas en la suposición de que otras unidades productivas de la región se comporten en forma similar.</p>
+<p>Asimismo, cualquier mención de las medidas de tendencia central (promedio, mediana, moda), totales, razones o proporciones que se obtengan de la muestra, debe acompañarse de la palabras “de la muestra”, precisando siempre que se trata de una muestra no probabilística. La estimación de varianzas e intervalos de confianza de las variables captadas solo tendrá sentido para efectos de análisis de la dispersión de los propios datos de la muestra, pero nunca como una medida de precisión de las estimaciones.</p>
+<p><br></p>
+</div>
+<div id="tamaño-de-la-muestra." class="section level4">
+<h4>Tamaño de la muestra.</h4>
+<p>Se define un tamaño de muestra de 200 unidades de observación por entidad federativa. Este tamaño se determinó con base en un criterio operativo como una carga de trabajo razonable para un grupo de 10 entrevistadores (20 entrevistas para cada uno), considerando un periodo de levantamiento de un mes, lo que implicaría el levantamiento de una entrevista por día hábil de lunes a viernes, aproximadamente. Por otra parte, este tamaño de muestra debería ser suficiente para generar insumos necesarios a efecto de construir estratificaciones, agrupamientos o clasificaciones de los distintos tipos de unidades productivas, con base en su comportamiento por monto de las pérdidas, tipos de productos manejados y tamaño de la unidad, entre otras variables, necesarios para diseñar una muestra probabilística posterior.</p>
+<p>Cabe agregar que la variable de diseño de la futura muestra probabilística debe ser la proporción de pérdida de alimento enla unidad productiva.</p>
+<p><br></p>
+</div>
+<div id="construcción-de-la-muestra." class="section level4">
+<h4>Construcción de la muestra.</h4>
+<p>Dado que no se cuenta con un inventario nacional de unidades de producción agropecuaria debidamente actualizado, se toma como marco de muestreo el listado de productores proporcionado por el Sistema de Información Agroalimentaria y Pesquera, órgano desconcentrado de la Secretaría de Agricultura y Desarrollo Rural (SADER), basado en sus registros administrativos.</p>
+<p>A partir de este listado, se ubican las unidades productoras por tipo de producto conforme el Cuadro 1. Una vez identificadas, se seleccionan para la muestra aquellas cuya distribución geográfica se encuentre en la periferia de las ciudades sede de las instituciones de educación superior participantes. Lo anterior garantiza que los entrevistadores no deban desplazarse grandes distancias para conseguir las entrevistas. Sólo en situaciones excepcionales se seleccionan unidades de observación más alejadas de los centros urbanos mencionados, como en el caso donde las zonas productoras de interés se concentren en regiones geográficas específicas dentro de la entidad federativa.</p>
+<p><br> <br></p>
+</div>
+</div>
+<div id="cuestionario-para-establecimientos." class="section level3">
+<h3><strong>Cuestionario para establecimientos.</strong></h3>
+<p><br></p>
+<div id="unidades-de-observación.-1" class="section level4">
+<h4>Unidades de observación.</h4>
+<p><br> <br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

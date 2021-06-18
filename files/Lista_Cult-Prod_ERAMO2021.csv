@@ -1,0 +1,86 @@
+Entidad,Agrícola,Pecuario,Pesquero
+Baja California,Fresa,Carne en canal de bovino,Atún
+Baja California,Tomate rojo,Leche de bovino,Langosta
+Baja California,Frambuesa,Huevo para plato,Lobina
+Baja California,Cebolla,Carne en canal de porcino,Sardina
+Baja California,,Carne en canal de ave,Abulón
+Chiapas,Maíz grano,Carne en canal de ave,Mojarra
+Chiapas,Caña de azúcar,Carne en canal de bovino,Atún
+Chiapas,Café cereza,Leche de bovino,Tiburón
+Chiapas,Plátano,Carne en canal de porcino,Camarón
+Chiapas,Mango,Miel,Robalo
+Chihuahua,Nuez,Leche de bovino,Trucha
+Chihuahua,Manzana,Carne en canal de bovino,Carpa
+Chihuahua,Maíz grano,Carne en canal de porcino,Bagre
+Chihuahua,Chile verde,Huevo para plato,
+Chihuahua,Cebolla,,
+Chihuahua,Sandía,,
+Coahuila,Manzana,Leche de cabra,Carpa
+Coahuila,Melón,Ganado en pie caprino,Mojarra
+Coahuila,Uva,Carne en canal de caprino,Bagre
+Coahuila,Trigo,Carne en canal de ave,Lobina
+Coahuila,Tomate rojo,Carne en canal de bovino,Besugo
+Coahuila,Nuez,Huevo para plato,
+Coahuila,,Leche de bovino,
+CDMX,Nopalitos,Leche de bovino,
+CDMX,Papa,Carne en canal de porcino,
+CDMX,,Carne en canal de bovino,
+CDMX,,Carne en canal de ovino,
+CDMX,,Miel,
+Guanajuato,Maíz grano,Carne en canal de ave,Mojarra
+Guanajuato,Sorgo grano,Carne en canal de porcino,Carpa
+Guanajuato,Brócoli,Leche de bovino,Charal
+Guanajuato,,Carne en canal de bovino,Bagre
+Guanajuato,,Huevo para plato,Lobina
+Hidalgo,Maíz grano,Carne en canal de ave,Mojarra
+Hidalgo,Cebada grano,Leche de bovino,Carpa
+Hidalgo,Tomate rojo,Carne en canal de bovino,Trucha
+Hidalgo,,Carne en canal de ovino,Bagre
+Hidalgo,,Carne en canal de porcino,Charal
+Jalisco,Agave,Huevo para plato,Mojarra
+Jalisco,Maíz grano,Carne en canal de bovino,Carpa
+Jalisco,Caña de azúcar,Carne en canal de porcino,Guachinango
+Jalisco,,Leche de bovino,Pargo
+Jalisco,,Carne en canal de ave,Bagre
+México,Maíz grano,Carne en canal de ave,Trucha
+México,Aguacate,Carne en canal de bovino,Mojarra
+México,Papa,Leche de bovino,Carpa
+México,,Carne en canal de porcino,Charal
+México,,Carne en canal de ovino,Lobina
+Nuevo León,Papa,Carne en canal de bovino,Mojarra
+Nuevo León,Naranja,Carne en canal de ave,Lobina
+Nuevo León,Tomate rojo,Huevo para plato,Trucha
+Nuevo León,Nuez,Carne en canal de porcino,Carpa
+Nuevo León,,Leche de bovino,
+Tabasco,Plátano,Carne en canal de bovino,Mojarra
+Tabasco,Caña de azúcar,Carne en canal de ave,Robalo
+Tabasco,Cacao,Carne en canal de porcino,Langostino
+Tabasco,Maíz grano,Leche de bovino,Bandera
+Tabasco,Palma africana o de aceite,Carne en canal de guajolote,Peto
+Tamaulipas,Sorgo grano,Carne canal de bovino,Camarón
+Tamaulipas,Maíz grano,Carne en canal de porcino,Jaiba
+Tamaulipas,Caña de azúcar,Leche de bovino,Guachinango
+Tamaulipas,Naranja ,Carne en canal de caprino,Mojarra
+Tamaulipas,,Carne en canal de ovino,Robalo
+Veracruz,Caña de azúcar,Carne en canal de bovino,Guachinango
+Veracruz,Maíz grano,Carne en canal de ave,Robalo
+Veracruz,Naranja,Carne en canal de porcino,Camarón
+Veracruz,Limón ,Leche de bovino,Mojarra
+Veracruz,Piña,Huevo para plato,
+Veracruz,Frijol,,
+Veracruz,Melón,,
+Zacatecas,Chile verde,Carne en canal de bovino,Mojarra
+Zacatecas,Frijol,Leche de bovino,Carpa
+Zacatecas,Maíz grano,Carne en canal de porcino,Bagre
+Zacatecas,Tomate rojo,Carne en canal de ovino,
+Zacatecas,,Carne en canal de caprino,
+Michoacán,Aguacate,Carne en canal de bovino,Mojarra
+Michoacán,Zarzamora,Leche de Bovino,Carpa
+Michoacán,Fresa,Carne en canal de porcino,Guachinango
+Michoacán,Maíz grano,Carne en canal de ave,Trucha
+Michoacán,Limón ,Huevo para plato,Bagre
+Sinaloa,Maíz grano,Carne en canal de bovino,Camarón
+Sinaloa,Tomate rojo,Carne en canal de ave,Atún
+Sinaloa,Chile verde,Huevo para plato,Barrilete
+Sinaloa,Garbanzo grano,Carne en canal de porcino,Jaiba
+Sinaloa,Frijol,Leche de bovino,Mojarra
