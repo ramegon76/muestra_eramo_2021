@@ -1,7 +1,7 @@
 name: muestra_eramo_2021
 output_dir: '.'
 navbar:
-  title: Muestra para la Prueba Piloto de la Encuesta de Residuos <br> de Alimentos y Materia Orgánica, 2021
+  title: Muestra para la Prueba Piloto de la ERAMO, 2021
   left:
   - text: "Introducción"
     href: index.html
@@ -9,10 +9,36 @@ navbar:
     href: cap2.html
   - text: "BC"
     href: cap3.html
-  - text: "Chih"
+  - text: "Coa"
     href: cap4.html
-  - text: "Coah"
+  - text: "Chia"
     href: cap5.html
+  - text: "Chih"
+    href: cap6.html
+  - text: "CDMX"
+    href: cap7.html
+  - text: "Gto"
+    href: cap8.html
+  - text: "Hgo"
+    href: cap9.html
+  - text: "Jal"
+    href: cap10.html
+  - text: "Méx"
+    href: cap11.html
+  - text: "Mich"
+    href: cap12.html
+  - text: "NL"
+    href: cap13.html
+  - text: "Sin"
+    href: cap14.html
+  - text: "Tab"
+    href: cap15.html
+  - text: "Tam"
+    href: cap16.html
+  - text: "Ver"
+    href: cap17.html
+  - text: "Zac"
+    href: cap18.html
 output:
   html_document:
     toc: yes

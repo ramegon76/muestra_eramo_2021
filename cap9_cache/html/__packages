@@ -1,0 +1,14 @@
+base
+kableExtra
+sp
+rgdal
+leaflet
+htmltools
+htmlwidgets
+leaflet.extras
+mapview
+raster
+bitops
+rjson
+zoo
+xts

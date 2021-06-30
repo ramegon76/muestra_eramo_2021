@@ -77,8 +77,11 @@ t1 <- read.csv("files/Lista_Cult-Prod_ERAMO2021.csv", header = T)
 library(kableExtra)
 
 
-kbl(t1) %>%
-  kable_paper(full_width = T) %>%
+kbl(t1) %>% 
+  kable_paper(full_width = T) %>% 
+  row_spec(c(5,10,16,23,28,
+             33,38,43,48,53,58,63,70,75,80,85), 
+           extra_css = "border-bottom: 1px solid") %>%
   collapse_rows(columns = 1, valign = "middle") %>%
   scroll_box(height = "400px")
 
@@ -150,15 +153,81 @@ A partir de este listado, se ubican las unidades productoras por tipo de product
 
 #### Unidades de observación.
 
+Los establecimientos o empresas que transportan, distribuyen, comercializan o prestan servicios relacionados con productos alimenticios. De forma específica, se consideran las unidades económicas cuyas claves en el Sistema de Clasificación Industrial de América del Norte (SCIAN) se encuentran en el listado del siguiente apartado.
 
+<br>
 
+#### Clases de actividad del SCIAN de los establecimientos de interés para la ERAMO
 
+Las unidades económicas que conforman la población objetivo de la ERAMO se encuentran definidas por las clases de actividad del SCIAN relacionadas con el manejo de alimentos, según se describe a detalle en el siguiente cuadro.
 
+<br/>
 
+<p align="center"> **Cuadro 2. Ramas, subramas y clases de actividad de interés para la ERAMO[^1^]^,^[^2^].** </p>
 
+```{r echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+t2 <- read.csv("files/scian.csv", header = F)
+names(t2) <- c("Clave","Rama, subrama y clase de actividad")
+rama <- which(t2$Clave < 9999)
+subrama <- which(t2$Clave > 9999 & t2$Clave < 99999)
+clase <- which(t2$Clave > 99999 & t2$Clave < 999999)
+
+kbl(t2, align = c("l","l")) %>%
+  kable_paper(full_width = T) %>%
+  row_spec(rama, bold = T) %>% 
+  row_spec(subrama, italic = T) %>%
+  add_indent(subrama,  
+             level_of_indent = 1, all_cols = T) %>%
+  add_indent(clase,
+             level_of_indent = 2, all_cols = T) %>%
+  scroll_box(height = "400px") 
+
+```
+
+<br>
+
+[^1^]: Se excluyen los subsectores de actividad *111 Agricultura*, *112 Cría y explotación de animales* y *114 Pesca, caza y captura*, por ser la población objetivo del cuestionario de unidades agropecuarias.
+
+[^2^]: Para la selección de unidades de observación sólo se toma en cuenta la clave SCIAN a 6 dígitos, es decir, la clase de actividad.
 
 <br>
 <br>
+
+
+#### Cobertura y desglose geográfico.
+
+Las 16 entidades federativas mencionadas en el apartado de cobertura para el cuestionario de unidades agrícolas. El desglose geográfico será a nivel de entidad federativa.
+
+<br>
+
+#### Tipo de muestreo.
+
+El muestreo de establecimientos será también por conveniencia (no probabilístico) acotada a la región geográfica cercana a las zonas urbanas donde se ubican las sedes de las instituciones participantes, para minimizar los costos operativos de los grupos de trabajo. La razón de elegir este tipo de muestra es la misma que para el cuestionario de unidades agropecuarias: se requiere mayor información sobre la variable de diseño (proporción de productos alimenticios perdidos o desperdiciados) por tipo de establecimiento (clase de actividad del SCIAN), tamaño de la unidad económica y región geográfica, necesaria para definir parámetros de diseño (estratos o conglomerados) de una futuraq muestra probabílistica nacional.
+
+<br>
+
+#### Tamaño de la muestra.
+
+En este caso, de forma similar a como se procedió con la muestra para el cuestionario de unidades agropecuarias, se toma en cuenta un criterio operativo para fijar el número de entrevistas. Se considera un total de 100 unidades de observación por entidad federativa. Lo anterior, debido a que en las pruebas piloto de 2019 y 2020 se ha captado ya una cantidad de información sobre establecimientos que permite contar con una base de análisis del comportamiento de las unidades económicas respecto a la PDA, y hace innecesario un mayor número de entrevistas en este sector. Por otra parte, las mayores pérdidas y desperdicios de alimentos se dan el sector agropecuario, de aquí que el énfasis de la Prueba Piloto se ubique en dicho cuestionario.
+
+<br>
+
+#### Construcción de la muestra.
+
+El INEGI cuenta con un inventario de establecimientos que cubre todo el país y que permite a la ERAMO disponer de un marco de muestreo completo y aceptablemente actualizado: el *Directorio Estadístico Nacional de Unidades Económicas (DENUE)*, construido a partir de la información recopilada en los Censos Económicos (cuya última edición se realizó en 2019). 
+
+Con dicho marco de muestreo, se seleccionan los establecimientos cuya clasificación del SCIAN coincide con las clases actividad descritas en el Cuadro 2. De ellos se seleccionan de forma manual los establecimientos bajo el criterio de cercanía geográfica y tratando de cubrir la mayor cantidad de clases de actividad. 
+
+El ID asignado por el DENUE a cada registro seleccionado se conserva en la muestra y se asignará como llave del registro de las entrevistas, a fin de poder vincular la información de la PDA que se capte, con la caracterización de unidades económicas incluida en el DENUE.
+
+
+
+
+
+
+
+
 
 
  

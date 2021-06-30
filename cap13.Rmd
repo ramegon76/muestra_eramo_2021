@@ -1,0 +1,98 @@
+---
+title: "**Nuevo León**"
+--- 
+
+<br>
+<br>
+
+<div class=text-justify>
+
+
+<br>
+<br>
+
+## **Muestra de establecimientos**
+
+<br>
+
+La muestra para las entrevistas en establecimientos comprende unidades de observación de los municipios de Monterrey, Apodaca, Santa Catarina, General Escobedo, Guadalupe, San Nicolás de los Garza y San Pedro Garza García.
+
+A continuación se presenta el listado de establecimientos correspondiente a la muestra, mismo que puede descargarse [aquí](estab/nl/muestra_nl_estab.xlsx).
+
+<br>
+
+```{r echo = FALSE, message = FALSE, fig.height= 6, fig.width= 8, warning = FALSE, cache=F}
+
+
+me2 <- read.csv("estab/nl/muestra_nl_estab.csv", header = T)
+me2 <- me2[,-1]
+
+library(kableExtra)
+
+
+kbl(me2) %>% 
+  kable_paper(full_width = T) %>% 
+  scroll_box(height = "400px", width = "100%")
+
+```
+ 
+<br>
+
+La descripción de las variables de la tabla anterior, se puede descargar haciendo clic [aquí](files/denue_diccionario_de_datos.xlsx).
+
+<br>
+
+Con el fin de facilitar la localización de las unidades de observación, se incluye a continuación un mapa donde se encuentran señalados los establecimientos correspondientes.
+
+<br>
+
+```{r mapa1, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6, cache =TRUE, out.width = "100%"}
+library(sp)
+library(rgdal)
+library(leaflet)
+library(htmltools)
+library(htmlwidgets)
+library(leaflet.extras)
+library(mapview)  
+library(raster)
+library(bitops)
+library(rjson)
+library(xts)
+
+puntos <- read.csv("estab/nl/muestra_nl_estab.csv")
+puntos <- puntos[,-1]
+crs_4326 <- CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
+puntos_sp <- SpatialPointsDataFrame(puntos[,c(40,39)],puntos[,-c(40,39)], proj4string = crs_4326)
+writeOGR(puntos_sp, "shape_files", "puntos", driver="ESRI Shapefile", encoding = 'UTF-8',
+         overwrite_layer=T)
+puntos_sp2 <- readOGR("shape_files/puntos.shp", encoding = 'UTF-8',
+                      "puntos", verbose=FALSE)
+puntos_sp2@data$lat <- puntos$latitud
+puntos_sp2@data$lon <- puntos$longitud
+
+
+m <- leaflet() %>% addTiles() %>% addFullscreenControl()
+m %>% setView(lng = -100.30736071880399, lat = 25.732085916176004, zoom = 10)  %>%
+  addMarkers(data=puntos_sp2, 
+             clusterOptions = markerClusterOptions(removeOutsideVisibleBounds = T),
+             popup = paste0( "<strong>ID_DENUE: </strong>", puntos$id, "</br>",
+                             "<strong>ESTABLECIMIENTO: </strong>", 
+                             puntos$nom_estab, "</br>",
+                             "<strong>ACTIVIDAD: </strong>", puntos$nombre_act, "</br>",
+                             "<strong>CALLE: </strong>", puntos$nom_vial, 
+                             "</br>",
+                             "<strong>COLONIA: </strong>", puntos$nomb_asent, "</br>",
+                             "<strong>MUNICIPIO: </strong>", puntos$municipio))
+
+```
+
+<br>
+<br>
+<br>
+
+## **Muestra de unidades agropecuarias**
+
+
+
+ 
+</div>
