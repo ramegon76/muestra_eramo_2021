@@ -5,6 +5,7 @@ utils
 grDevices
 graphics
 stats
+kableExtra
 sp
 rgdal
 leaflet
@@ -17,4 +18,3 @@ bitops
 rjson
 zoo
 xts
-kableExtra
